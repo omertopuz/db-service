@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -49,28 +48,5 @@ public class DbRestController {
     @PostMapping("/update-detail-entity")
     public ResponseUpdateDetailEntity updateDetailEntity(@Valid @RequestBody RequestUpdateDetailEntity request){
         return transactionalDataService.updateDetailEntity(new ArrayList<>(Arrays.asList(request)));
-    }
-
-    @GetMapping("/requestUpdateDetailEntityJson")
-    public List<RequestUpdateDetailEntity> requestUpdateDetailEntityJson(){
-        			List<RequestUpdateDetailEntity> reqList = new ArrayList<>(Arrays.asList(
-					new RequestUpdateDetailEntity(1,new HashMap<String, String>() {{
-						put("SentApplicationFileAttachmentId", "1235");
-						put("InformedProgramStateIdByUs", "2");
-					}}),
-					new RequestUpdateDetailEntity(2,new HashMap<String, String>() {{
-						put("SentApplicationFileAttachmentId", "85674");
-						put("InformedProgramStateIdByUs", "1");
-					}}),
-					new RequestUpdateDetailEntity(3,new HashMap<String, String>() {{
-						put("SentApplicationFileAttachmentId", "345346");
-						put("InformedProgramStateIdByUs", "3");
-					}}),
-					new RequestUpdateDetailEntity(4,new HashMap<String, String>() {{
-						put("SentApplicationFileAttachmentId", "98765");
-						put("InformedProgramStateIdByUs", "2");
-					}})
-			));
-        return reqList;
     }
 }

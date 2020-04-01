@@ -32,10 +32,6 @@ public class DbServiceConfig {
         }
     }
 
-    public Map<String, String> getSqlBundle() {
-        return sqlBundle;
-    }
-
     public String getSqlStatementByLabel(String sqlLabel) {
         return sqlBundle.get(sqlLabel);
     }
