@@ -1,4 +1,4 @@
-package com.dbservice.models.db;
+package com.dbservice.models.db.dbentity;
 
 import javax.persistence.*;
 import java.util.Date;

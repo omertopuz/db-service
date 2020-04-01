@@ -2,7 +2,10 @@ package com.dbservice.service;
 
 import com.dbservice.dao.CustomDAO;
 import com.dbservice.dao.impl.GenericRepositoryImpl;
-import com.dbservice.models.db.Countries;
+import com.dbservice.models.db.dbentity.Countries;
+import com.dbservice.models.db.ResponseInformApplicationFileId;
+import com.dbservice.models.db.ResponseInformEvaluationFormId;
+import com.dbservice.models.db.ResponseWillBeInformedStates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +25,19 @@ public class DataRetrieveService {
         return customDao.getCountries();
     }
 
+    public List<ResponseWillBeInformedStates> getAllWillBeInformedEntities() {
+        return customDao.getAllWillBeInformedEntities();
+    }
+    public List<ResponseInformApplicationFileId> getAllInformApplicationFiles() {
+        return customDao.getAllInformApplicationFiles();
+    }
+
+    public List<ResponseInformEvaluationFormId> getAllInformEvaluationForm() {
+        return customDao.getAllInformEvaluationForm();
+    }
     public Countries getCountryByIdWithRepo(Integer id) {
         GenericRepositoryImpl<Countries,Integer> repo = getGenericRepo(Countries.class);
         Optional<Countries> testEntity = repo.findById(id);
-
         return testEntity.orElse(new Countries());
     }
 
