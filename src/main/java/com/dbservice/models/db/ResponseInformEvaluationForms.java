@@ -1,6 +1,8 @@
 package com.dbservice.models.db;
 
-public class ResponseInformEvaluationFormId {
+import java.util.Date;
+
+public class ResponseInformEvaluationForms {
     private int applicationId;
     private int versionId;
     private int detailId;
@@ -8,6 +10,7 @@ public class ResponseInformEvaluationFormId {
     private String applicantTaxNumber;
     private Integer informedEvaluationFormIdInAdvance;
     private int willBeInformedEvaluationFormId;
+    private Date fileCreationDate;
 
     public int getApplicationId() {
         return applicationId;
@@ -63,5 +66,13 @@ public class ResponseInformEvaluationFormId {
 
     public void setWillBeInformedEvaluationFormId(int willBeInformedEvaluationFormId) {
         this.willBeInformedEvaluationFormId = willBeInformedEvaluationFormId;
+    }
+
+    public Date getFileCreationDate() {
+        return fileCreationDate;
+    }
+
+    public void setFileCreationDate(Date fileCreationDate) {
+        this.fileCreationDate = fileCreationDate;
     }
 }

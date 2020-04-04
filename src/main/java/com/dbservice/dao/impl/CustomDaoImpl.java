@@ -3,8 +3,8 @@ package com.dbservice.dao.impl;
 import com.dbservice.config.DbServiceConfig;
 import com.dbservice.dao.CustomDAO;
 import com.dbservice.models.db.dbentity.Countries;
-import com.dbservice.models.db.ResponseInformApplicationFileId;
-import com.dbservice.models.db.ResponseInformEvaluationFormId;
+import com.dbservice.models.db.ResponseInformApplicationFiles;
+import com.dbservice.models.db.ResponseInformEvaluationForms;
 import com.dbservice.models.db.ResponseWillBeInformedStates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -37,16 +37,16 @@ public class CustomDaoImpl implements CustomDAO {
     }
 
     @Override
-    public List<ResponseInformApplicationFileId> getAllInformApplicationFiles() {
+    public List<ResponseInformApplicationFiles> getAllInformApplicationFiles() {
         String query = dbServiceConfig.getSqlStatementByLabel("informApplicationFileId");
-        List<ResponseInformApplicationFileId> result = jdbcTemplate.query(query, new Object[] {  }, BeanPropertyRowMapper.newInstance(ResponseInformApplicationFileId.class));
+        List<ResponseInformApplicationFiles> result = jdbcTemplate.query(query, new Object[] {  }, BeanPropertyRowMapper.newInstance(ResponseInformApplicationFiles.class));
         return result;
     }
 
     @Override
-    public List<ResponseInformEvaluationFormId> getAllInformEvaluationForm() {
+    public List<ResponseInformEvaluationForms> getAllInformEvaluationForm() {
         String query = dbServiceConfig.getSqlStatementByLabel("informEvaluationFormId");
-        List<ResponseInformEvaluationFormId> result = jdbcTemplate.query(query, new Object[] {  }, BeanPropertyRowMapper.newInstance(ResponseInformEvaluationFormId.class));
+        List<ResponseInformEvaluationForms> result = jdbcTemplate.query(query, new Object[] {  }, BeanPropertyRowMapper.newInstance(ResponseInformEvaluationForms.class));
         return result;
     }
 }

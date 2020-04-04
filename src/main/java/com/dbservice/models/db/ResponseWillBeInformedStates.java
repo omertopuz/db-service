@@ -1,6 +1,5 @@
 package com.dbservice.models.db;
 
-import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
@@ -10,7 +9,25 @@ public class ResponseWillBeInformedStates {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateDate;
     private int willBeInformedState;
+    private String willBeInformedStateString;
     private int informedProgramStateInAdvance;
+    private String remoteEntityId;
+
+    public String getWillBeInformedStateString() {
+        return willBeInformedStateString;
+    }
+
+    public void setWillBeInformedStateString(String willBeInformedStateString) {
+        this.willBeInformedStateString = willBeInformedStateString;
+    }
+
+    public String getRemoteEntityId() {
+        return remoteEntityId;
+    }
+
+    public void setRemoteEntityId(String remoteEntityId) {
+        this.remoteEntityId = remoteEntityId;
+    }
 
     public int getDetailId() {
         return detailId;

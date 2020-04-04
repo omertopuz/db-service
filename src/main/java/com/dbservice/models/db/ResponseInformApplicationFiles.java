@@ -1,13 +1,17 @@
 package com.dbservice.models.db;
 
-public class ResponseInformApplicationFileId {
+import java.util.Date;
+
+public class ResponseInformApplicationFiles {
     private int applicationId;
     private int versionId;
     private int detailId;
     private int entityId;
     private String applicantTaxNumber;
+    private String localFileName;
     private Integer informedFileIdInAdvance;
-    private int willBeInformedFileId;
+    private Long willBeInformedFileId;
+    private Date fileCreationDate;
 
     public int getApplicationId() {
         return applicationId;
@@ -57,11 +61,27 @@ public class ResponseInformApplicationFileId {
         this.informedFileIdInAdvance = informedFileIdInAdvance;
     }
 
-    public int getWillBeInformedFileId() {
+    public Long getWillBeInformedFileId() {
         return willBeInformedFileId;
     }
 
-    public void setWillBeInformedFileId(int willBeInformedFileId) {
+    public void setWillBeInformedFileId(Long willBeInformedFileId) {
         this.willBeInformedFileId = willBeInformedFileId;
+    }
+
+    public Date getFileCreationDate() {
+        return fileCreationDate;
+    }
+
+    public void setFileCreationDate(Date fileCreationDate) {
+        this.fileCreationDate = fileCreationDate;
+    }
+
+    public String getLocalFileName() {
+        return localFileName;
+    }
+
+    public void setLocalFileName(String localFileName) {
+        this.localFileName = localFileName;
     }
 }

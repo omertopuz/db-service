@@ -3,8 +3,8 @@ package com.dbservice.service;
 import com.dbservice.dao.CustomDAO;
 import com.dbservice.dao.impl.GenericRepositoryImpl;
 import com.dbservice.models.db.dbentity.Countries;
-import com.dbservice.models.db.ResponseInformApplicationFileId;
-import com.dbservice.models.db.ResponseInformEvaluationFormId;
+import com.dbservice.models.db.ResponseInformApplicationFiles;
+import com.dbservice.models.db.ResponseInformEvaluationForms;
 import com.dbservice.models.db.ResponseWillBeInformedStates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,11 +28,11 @@ public class DataRetrieveService {
     public List<ResponseWillBeInformedStates> getAllWillBeInformedEntities() {
         return customDao.getAllWillBeInformedEntities();
     }
-    public List<ResponseInformApplicationFileId> getAllInformApplicationFiles() {
+    public List<ResponseInformApplicationFiles> getAllInformApplicationFiles() {
         return customDao.getAllInformApplicationFiles();
     }
 
-    public List<ResponseInformEvaluationFormId> getAllInformEvaluationForm() {
+    public List<ResponseInformEvaluationForms> getAllInformEvaluationForm() {
         return customDao.getAllInformEvaluationForm();
     }
     public Countries getCountryByIdWithRepo(Integer id) {

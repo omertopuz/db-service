@@ -2,8 +2,8 @@ package com.dbservice.controllers;
 
 import com.dbservice.models.RequestUpdateDetailEntity;
 import com.dbservice.models.ResponseUpdateDetailEntity;
-import com.dbservice.models.db.ResponseInformApplicationFileId;
-import com.dbservice.models.db.ResponseInformEvaluationFormId;
+import com.dbservice.models.db.ResponseInformApplicationFiles;
+import com.dbservice.models.db.ResponseInformEvaluationForms;
 import com.dbservice.models.db.ResponseWillBeInformedStates;
 import com.dbservice.service.DataRetrieveService;
 import com.dbservice.service.TransactionalDataService;
@@ -31,12 +31,12 @@ public class DbRestController {
     }
 
     @GetMapping("/inform-application-files")
-    public List<ResponseInformApplicationFileId> getAllInformApplicationFiles(){
+    public List<ResponseInformApplicationFiles> getAllInformApplicationFiles(){
         return dataRetrieveService.getAllInformApplicationFiles();
     }
 
     @GetMapping("/inform-evaluation-forms")
-    public List<ResponseInformEvaluationFormId> getAllInformEvaluationForm(){
+    public List<ResponseInformEvaluationForms> getAllInformEvaluationForm(){
         return dataRetrieveService.getAllInformEvaluationForm();
     }
 
