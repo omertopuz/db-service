@@ -2,10 +2,12 @@ package com.dbservice.service;
 
 import com.dbservice.dao.CustomDAO;
 import com.dbservice.dao.impl.GenericRepositoryImpl;
+import com.dbservice.models.RequestGetEntityById;
 import com.dbservice.models.db.dbentity.Countries;
 import com.dbservice.models.db.ResponseInformApplicationFiles;
 import com.dbservice.models.db.ResponseInformEvaluationForms;
 import com.dbservice.models.db.ResponseWillBeInformedStates;
+import com.dbservice.util.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,4 +47,28 @@ public class DataRetrieveService {
         GenericRepositoryImpl<T,S> repo = new GenericRepositoryImpl<T,S>(clazz, em);
         return repo;
     }
+
+    public List getAll(String entityName) throws ClassNotFoundException {
+        Class entityClass = Class.forName(Utilities.getFullEntityName(entityName));
+        Class idClass = em.getEntityManagerFactory().getMetamodel().entity(entityClass).getIdType().getJavaType();
+        return getAll(entityClass,idClass);
+    }
+
+    public <T,S> List getAll(Class<T> entityClass, Class<S> idPropertyClass) {
+        GenericRepositoryImpl<T,S> repo = getGenericRepo(entityClass);
+        return repo.findAll();
+    }
+
+    public Object getEntityById(RequestGetEntityById request) throws ClassNotFoundException {
+        Class entityClass = Class.forName(Utilities.getFullEntityName(request.getEntityName()));
+        Class idClass = em.getEntityManagerFactory().getMetamodel().entity(entityClass).getIdType().getJavaType();
+        return getEntityById(entityClass,idClass,request.getEntityId());
+    }
+
+    public <T,S> T getEntityById(Class<T> entityClass, Class<S> idPropertyClass, Object entityId) {
+        GenericRepositoryImpl<T,S> repo = getGenericRepo(entityClass);
+
+        return (T)repo.findById((S)entityId).get();
+    }
+
 }
