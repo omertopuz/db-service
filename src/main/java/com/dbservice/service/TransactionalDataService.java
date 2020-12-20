@@ -9,15 +9,18 @@ import com.dbservice.models.db.dbentity.YDStratejikUrunProgramFirmDetail;
 import com.dbservice.util.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 @Service
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED,
+        isolation = Isolation.READ_UNCOMMITTED)
 public class TransactionalDataService {
 
     @Autowired
